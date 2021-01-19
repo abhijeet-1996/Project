@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Model.Hotel;
+import com.example.demo.Repository.HotelRepo;
 
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -40,5 +41,13 @@ public class HotelServiceImpl implements HotelService {
 		repo.save(prod);
 		return prod;
 	}
+	
+	@Override
+	
+	public List<Hotel> getHotelByState(String state)
+	{
+		return repo.findByState(state);
+	}
+
 
 }

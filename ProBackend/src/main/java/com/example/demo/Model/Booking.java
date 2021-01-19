@@ -10,14 +10,28 @@ public class Booking {
 	private int bookingid;
 	private String checkindate;
 	private String checkoutdate;
-	private int amount; 
-	private String paymentmode;
+	private String validthru; 
+	private long creditcardno ;
 	private String tempcheckindate;
 	private String tempcheckoutdate;
 	private String bookingdate;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Customer customer;
+	private int customerid;
+	private int hotelid;
 	
+	
+	
+	public int getCustomerid() {
+		return customerid;
+	}
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
+	}
+	public int getHotelid() {
+		return hotelid;
+	}
+	public void setHotelid(int hotelid) {
+		this.hotelid = hotelid;
+	}
 	public int getBookingid() {
 		return bookingid;
 	}
@@ -39,20 +53,18 @@ public class Booking {
 		this.checkoutdate = checkoutdate;
 	}
 	
-	public int getAmount() {
-		return amount;
+	public String getValidthru() {
+		return validthru;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setValidthru(String validthru) {
+		this.validthru = validthru;
 	}
-	
-	public String getPaymentmode() {
-		return paymentmode;
+	public long getCreditcardno() {
+		return creditcardno;
 	}
-	public void setPaymentmode(String paymentmode) {
-		this.paymentmode = paymentmode;
+	public void setCreditcardno(long creditcardno) {
+		this.creditcardno = creditcardno;
 	}
-	
 	public String getTempcheckindate() {
 		return tempcheckindate;
 	}
@@ -73,19 +85,12 @@ public class Booking {
 	public void setBookingdate(String bookingdate) {
 		this.bookingdate = bookingdate;
 	}
-	
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 	@Override
 	public String toString() {
 		return "Booking [bookingid=" + bookingid + ", checkindate=" + checkindate + ", checkoutdate=" + checkoutdate
-				+ ", amount=" + amount + ", paymentmode=" + paymentmode + ", tempcheckindate=" + tempcheckindate
-				+ ", tempcheckoutdate=" + tempcheckoutdate + ", bookingdate=" + bookingdate + ", customer=" + customer
-				+ "]";
+				+ ", validthru=" + validthru + ", creditcardno=" + creditcardno + ", tempcheckindate=" + tempcheckindate
+				+ ", tempcheckoutdate=" + tempcheckoutdate + ", bookingdate=" + bookingdate + ", customerid="
+				+ customerid + ", hotelid=" + hotelid + "]";
 	}
-
+	
 }

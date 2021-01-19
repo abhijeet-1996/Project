@@ -1,7 +1,5 @@
 package com.example.demo.Model;
 
-import java.util.List;
-
 import javax.persistence.*;
 @Entity
 public class Amenities {
@@ -11,8 +9,6 @@ public class Amenities {
 	private int amenitiesid;
 	private String amenitiesname;
 	private int cost;
-	@ManyToMany(mappedBy="amenities")
-	private List<Hotel> hotels;
 	
 	public int getAmenitiesid() {
 		return amenitiesid;
@@ -32,18 +28,10 @@ public class Amenities {
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
-	public List<Hotel> getHotels() {
-		return hotels;
-	}
-	public void setHotels(List<Hotel> hotels) {
-		this.hotels = hotels;
-	}
 	@Override
 	public String toString() {
-		return "Amenities [amenitiesid=" + amenitiesid + ", amenitiesname=" + amenitiesname + ", cost=" + cost
-				+ ", hotels=" + hotels + "]";
+		return "Amenities [amenitiesid=" + amenitiesid + ", amenitiesname=" + amenitiesname + ", cost=" + cost + "]";
 	}
 
-	
 	
 }

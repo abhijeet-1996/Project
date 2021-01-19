@@ -1,7 +1,5 @@
 package com.example.demo.Model;
 
-import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,10 +17,9 @@ public class Staff {
 	private String designation;
 	private String email;
 	private String password;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "staffid", referencedColumnName="staffid")
-	private Set<StaffContact> staffcontacts;
+	private long phone1;
+	private long phone2;
+
 	
 	public int getStaffid() {
 		return staffid;
@@ -90,18 +87,25 @@ public class Staff {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Set<StaffContact> getStaffcontacts() {
-		return staffcontacts;
+	public long getPhone1() {
+		return phone1;
 	}
-	public void setStaffcontacts(Set<StaffContact> staffcontacts) {
-		this.staffcontacts = staffcontacts;
+	public void setPhone1(long phone1) {
+		this.phone1 = phone1;
+	}
+	public long getPhone2() {
+		return phone2;
+	}
+	public void setPhone2(long phone2) {
+		this.phone2 = phone2;
 	}
 	@Override
 	public String toString() {
 		return "Staff [staffid=" + staffid + ", firstname=" + firstname + ", lastname=" + lastname + ", gender="
 				+ gender + ", dateofbirth=" + dateofbirth + ", address=" + address + ", governmentidproof="
 				+ governmentidproof + ", governmentidnumber=" + governmentidnumber + ", designation=" + designation
-				+ ", email=" + email + ", password=" + password + ", staffcontacts=" + staffcontacts + "]";
+				+ ", email=" + email + ", password=" + password + ", phone1=" + phone1 + ", phone2=" + phone2 + "]";
 	}
 
+	
 }

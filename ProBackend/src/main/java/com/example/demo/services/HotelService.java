@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,5 +11,6 @@ public interface HotelService {
 	Hotel addHotel(Hotel prod);
 	void deleteHotel(int id);
 	Hotel updateHotel(Hotel prod); 
+	List<Hotel>  getHotelByState(String state);
 	
 }

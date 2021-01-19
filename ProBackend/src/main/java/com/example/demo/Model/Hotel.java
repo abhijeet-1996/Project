@@ -1,8 +1,5 @@
 package com.example.demo.Model;
 
-import java.util.List;
-import java.util.Set;
-
 import javax.persistence.*;
 
 
@@ -21,36 +18,9 @@ public class Hotel {
 	private int roomsavailable;
 	private int rent; 
 	private int rating;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hotelid", referencedColumnName="hotelid")
-	private Set<HotelContacts> hotelcontacts;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hotelid", referencedColumnName="hotelid")
-	private Set<Staff> staff;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hotelid", referencedColumnName="hotelid")
-	private Set<Customer> customer;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "hotelid", referencedColumnName="hotelid")
-	private Set<Booking> booking;
+	private long phone1;
+	private long phone2;
 
-	@ManyToMany
-	@JoinTable(name="hotelamenities",joinColumns=@JoinColumn(name="hotelid"),
-			inverseJoinColumns=@JoinColumn(name="amenitiesid"))
-	private List<Amenities> amenities;
-	
-	
-	
-	public List<Amenities> getAmenities() {
-		return amenities;
-	}
-	public void setAmenities(List<Amenities> amenities) {
-		this.amenities = amenities;
-	}
 	public int getHotelid() {
 		return hotelid;
 	}
@@ -125,42 +95,24 @@ public class Hotel {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	
-	public Set<HotelContacts> getHotelcontacts() {
-		return hotelcontacts;
+	public long getPhone1() {
+		return phone1;
 	}
-	public void setHotelcontacts(Set<HotelContacts> hotelcontacts) {
-		this.hotelcontacts = hotelcontacts;
+	public void setPhone1(long phone1) {
+		this.phone1 = phone1;
 	}
-	
-	 
-	public Set<Staff> getStaff() {
-		return staff;
+	public long getPhone2() {
+		return phone2;
 	}
-	public void setStaff(Set<Staff> staff) {
-		this.staff = staff;
-	}
-	
-	public Set<Customer> getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Set<Customer> customer) {
-		this.customer = customer;
-	}
-	
-	public Set<Booking> getBooking() {
-		return booking;
-	}
-	public void setBooking(Set<Booking> booking) {
-		this.booking = booking;
+	public void setPhone2(long phone2) {
+		this.phone2 = phone2;
 	}
 	@Override
 	public String toString() {
 		return "Hotel [hotelid=" + hotelid + ", hotelname=" + hotelname + ", hoteldescription=" + hoteldescription
 				+ ", address=" + address + ", state=" + state + ", city=" + city + ", pincode=" + pincode
 				+ ", totalrooms=" + totalrooms + ", roomsavailable=" + roomsavailable + ", rent=" + rent + ", rating="
-				+ rating + ", hotelcontacts=" + hotelcontacts + ", staff=" + staff + ", customer=" + customer
-				+ ", booking=" + booking + ", amenities=" + amenities + "]";
+				+ rating + ", phone1=" + phone1 + ", phone2=" + phone2 + "]";
 	}
 	
 }

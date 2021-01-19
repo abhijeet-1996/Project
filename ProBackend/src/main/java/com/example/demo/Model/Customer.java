@@ -1,6 +1,5 @@
 package com.example.demo.Model;
 
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -19,10 +18,37 @@ public class Customer {
 	private String governmentidnumber;
 	private String email;
 	private String password;
+	private String town;
+	private String state;
+	private int pin;
+	private long phone1;
+	private long phone2;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customerid", referencedColumnName="customerid")
-	private Set<CustomerContact> customercontacts;
+	
+
+	public String getTown() {
+		return town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getPin() {
+		return pin;
+	}
+
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
 
 	public int getCustomerid() {
 		return customerid;
@@ -104,12 +130,20 @@ public class Customer {
 		this.password = password;
 	}
 
-	public Set<CustomerContact> getCustomercontacts() {
-		return customercontacts;
+	public long getPhone1() {
+		return phone1;
 	}
 
-	public void setCustomercontacts(Set<CustomerContact> customercontacts) {
-		this.customercontacts = customercontacts;
+	public void setPhone1(long phone1) {
+		this.phone1 = phone1;
+	}
+
+	public long getPhone2() {
+		return phone2;
+	}
+
+	public void setPhone2(long phone2) {
+		this.phone2 = phone2;
 	}
 
 	@Override
@@ -117,7 +151,9 @@ public class Customer {
 		return "Customer [customerid=" + customerid + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", gender=" + gender + ", dob=" + dob + ", address=" + address + ", governmentidproof="
 				+ governmentidproof + ", governmentidnumber=" + governmentidnumber + ", email=" + email + ", password="
-				+ password + ", customercontacts=" + customercontacts + "]";
+				+ password + ", town=" + town + ", state=" + state + ", pin=" + pin + ", phone1=" + phone1 + ", phone2="
+				+ phone2 + "]";
 	}
-
+	
+	
 }
