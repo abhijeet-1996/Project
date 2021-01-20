@@ -32,112 +32,111 @@ import com.example.demo.services.StaffService;
 public class HotelController {
 
 	@Autowired
-	private AmenitiesServices serv;
+	private AmenitiesServices amenitieServices;
 	
 	@GetMapping("/amenities")   
 	public List<Amenities> getAmenities() {
-		return serv.getAmenities();
+		return amenitieServices.getAmenities();
 	}
 /****************************BOOKING********************************/
 	
 	@Autowired
-	private BookingService bservice;
+	private BookingService bookingService;
 
 		@GetMapping("/booking")   
 		  public List<Booking> getbookings()
 		  {
-			return bservice.getBookings();
+			return bookingService.getBookings();
 		  }
 		
 		@GetMapping("/booking/{id}")   
 		public Optional<Booking> getBooking(@PathVariable("id") int id)
 		{
-			return bservice.getBooking(id);
+			return bookingService.getBooking(id);
 		}
 		
 		@PostMapping(path="/booking",consumes= {"application/json"})
 		public Booking addBooking(@RequestBody Booking booking)
 		{
-			bservice.addBooking(booking);
+			bookingService.addBooking(booking);
 			return booking;
 		}
 		
 		@DeleteMapping("/booking/{id}")
 		public void deleteBooking(@PathVariable("id") int id)
 		{
-			bservice.deleteBooking(id);
+			bookingService.deleteBooking(id);
 		}
 		
 		@PutMapping(path="/booking/{id}",consumes = {"application/json"})
 		public Booking updatebooking(@RequestBody Booking booking)
 		{
-			bservice.updateBooking(booking);
+			bookingService.updateBooking(booking);
 			return booking;
 		}
 	
 /*****************************CUSTOMER*******************************/
 		
 		@Autowired
-		private CustomerService cservice;
+		private CustomerService customerService;
 
 			@GetMapping("/Customer")   
 			  public List<Customer> getCustomers()
 			  {
-				return cservice.getCustomers();
+				return customerService.getCustomers();
 			  }
 			
 			@GetMapping("/Customer/{id}")   
 			public Optional<Customer> getCustomer(@PathVariable("id") int id)
 			{
-				return cservice.getCustomer(id);
+				return customerService.getCustomer(id);
 			}
 			
 			@PostMapping(path="/Customer")
 			public Customer addCustomer(@RequestBody Customer customer)
 			{
-				cservice.addCustomer(customer);
+				customerService.addCustomer(customer);
 				return customer;
 			}
 			
 			@DeleteMapping("/Customer/{id}")
 			public void deleteCustomer(@PathVariable("id") int id)
 			{
-				cservice.deleteCustomer(id);
+				customerService.deleteCustomer(id);
 			}
 			
 			@PutMapping(path="/Customer/{id}",consumes = {"application/json"})
 			public Customer updateCustomer(@RequestBody Customer customer)
 			{
-				cservice.updateCustomer(customer);
+				customerService.updateCustomer(customer);
 				return customer;
 			}
 		
 /*****************************HOTEL AMENITIES*******************************/
 			
 			@Autowired
-			private HotelAmenitiesServices haservice;
+			private HotelAmenitiesServices hotelAmenitiesServices;
 			
 			@GetMapping("/hotelamenties")
 			public List<HotelAmenities> getHotelAmenities() {
-				return haservice.getHotelAmenities();
+				return hotelAmenitiesServices.getHotelAmenities();
 			}
 			
 			@PostMapping(path="/hotelamenties",consumes= {"application/json"})
 			public HotelAmenities addHotelAmenities(@RequestBody HotelAmenities cont) {
-				return haservice.addHotelAmenities(cont);
+				return hotelAmenitiesServices.addHotelAmenities(cont);
 			}
 			
 /*****************************HOTEL*******************************/
 				
 	@Autowired
-	private HotelService service;
+	private HotelService hotelService;
 
 		@GetMapping("/hotels")   
 		  public List<Hotel> getHotels()
 		  {
 			
-			//System.out.println(service.getHotelByState("maharastra"));
-			return service.getHotels();
+			return hotelService.getHotels();
 			
 		  }
 		
@@ -145,7 +144,7 @@ public class HotelController {
 		public List<Hotel> getHotelByState(
 				@RequestParam("state") String state)
 		{
-			return service.getHotelByState(state);
+			return hotelService.getHotelByState(state);
 		}
 
 		/**************************************************
@@ -154,63 +153,63 @@ public class HotelController {
 		@GetMapping("/hotels/{id}")   
 		public Optional<Hotel> getHotel(@PathVariable("id") int id)
 		{
-			return service.getHotel(id);
+			return hotelService.getHotel(id);
 		}
 		
 		@PostMapping(path="/hotels",consumes= {"application/json"})
 		public Hotel addHotel(@RequestBody Hotel prod)
 		{
-			service.addHotel(prod);
+			hotelService.addHotel(prod);
 			return prod;
 		}
 		
 		@DeleteMapping("/hotels/{id}")
 		public void deleteHotel(@PathVariable("id") int id)
 		{
-			service.deleteHotel(id);
+			hotelService.deleteHotel(id);
 		}
 		
 		@PutMapping(path="/hotels/{id}",consumes = {"application/json"})
 		public Hotel updateHotel(@RequestBody Hotel prod)
 		{
-			service.updateHotel(prod);
+			hotelService.updateHotel(prod);
 			return prod;
 		}
 		
 /****************************STAFF********************************/
 		
 		@Autowired
-		private StaffService sservice;
+		private StaffService staffServices;
 
 			@GetMapping("/staff")   
 			  public List<Staff> getstaffs()
 			  {
-				return sservice.getStaffs();
+				return staffServices.getStaffs();
 			  }
 			
 			@GetMapping("/staff/{id}")   
 			public Optional<Staff> getStaff(@PathVariable("id") int id)
 			{
-				return sservice.getStaff(id);
+				return staffServices.getStaff(id);
 			}
 			
 			@PostMapping(path="/staff",consumes= {"application/json"})
 			public Staff addStaff(@RequestBody Staff staff)
 			{
-				sservice.addStaff(staff);
+				staffServices.addStaff(staff);
 				return staff;
 			}
 			
 			@DeleteMapping("/staff/{id}")
 			public void deleteStaff(@PathVariable("id") int id)
 			{
-				sservice.deleteStaff(id);
+				staffServices.deleteStaff(id);
 			}
 			
 			@PutMapping(path="/staff/{id}",consumes = {"application/json"})
 			public Staff updateStaff(@RequestBody Staff staff)
 			{
-				sservice.updateStaff(staff);
+				staffServices.updateStaff(staff);
 				return staff;
 			}
 }

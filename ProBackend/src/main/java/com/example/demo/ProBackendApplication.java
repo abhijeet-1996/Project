@@ -8,7 +8,7 @@ public class ProBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProBackendApplication.class, args);
-		System.out.println("Abhijeet Choulgule");
+		System.out.println("Project Running Successfully");
 	}
 
 }
