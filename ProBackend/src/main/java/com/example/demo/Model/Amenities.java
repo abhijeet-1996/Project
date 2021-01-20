@@ -8,7 +8,6 @@ public class Amenities {
 	@GeneratedValue
 	private int amenitiesid;
 	private String amenitiesname;
-	private int cost;
 	
 	public int getAmenitiesid() {
 		return amenitiesid;
@@ -22,15 +21,10 @@ public class Amenities {
 	public void setAmenitiesname(String amenitiesname) {
 		this.amenitiesname = amenitiesname;
 	}
-	public int getCost() {
-		return cost;
-	}
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
+
 	@Override
 	public String toString() {
-		return "Amenities [amenitiesid=" + amenitiesid + ", amenitiesname=" + amenitiesname + ", cost=" + cost + "]";
+		return "Amenities [amenitiesid=" + amenitiesid + ", amenitiesname=" + amenitiesname + "]";
 	}
 
 	
